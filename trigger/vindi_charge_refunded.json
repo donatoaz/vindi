@@ -1,0 +1,92 @@
+{
+  "name":{
+    "pt_BR":"Cobrança reembolsada",
+    "en":"Charge refunded"
+  },
+  "trigger_key":"charge_refunded",
+  "description":{
+    "pt_BR":"Quando uma cobrança for reembolsada.",
+    "en":"When a charge is refunded."
+  },
+  "trigger_fields":{
+    "type":"local",
+    "fields":[
+      {
+        "key":"id",
+        "name":"id da cobrança",
+        "description":"Identificação da cobrança na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"due_at",
+        "name":"data de expiração (formatado - DD/MM/YYYY)",
+        "source":"format_date(source[:due_at],%q(%d/%m/%Y))",
+        "description":"Data de expiração da cobrança",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.email",
+        "name":"cliente email",
+        "description":"E-mail do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"status",
+        "name":"status",
+        "description":"Status da cobrança na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"amount",
+        "name":"valor total",
+        "description":"Valor da cobrança",
+        "field_type":"string"
+      },
+      {
+        "key":"created_at",
+        "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:created_at]",
+        "description":"Data de criação da cobrança na Vindi.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"updated_at",
+        "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:updated_at]",
+        "description":"Data da última atualização da cobrança na Vindi.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"paid_at",
+        "name":"pago em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "description":"Data de pagamento.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"customer.id",
+        "name":"id do cliente",
+        "description":"ID do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"bill.id",
+        "name":"id da fatura",
+        "description":"ID da fatura na Vindi.",
+        "field_type":"string"
+      }
+    ]
+  },
+  "trigger_type":"webhook",
+  "webhook":{
+    "message_type":"object",
+    "field":"event.data.charge",
+    "event_filter":{
+      "field":"event.type",
+      "events":["charge_refunded"]
+    },
+    "idempotent":[
+      {"type":"body", "field":"event.data.charge.id"},
+      {"type":"body", "field":"event.data.charge.status"}
+    ]
+  }
+}

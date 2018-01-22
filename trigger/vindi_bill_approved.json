@@ -1,0 +1,86 @@
+{
+  "name":{
+    "pt_BR":"Fatura approvada",
+    "en":"Bill appoved"
+  },
+  "trigger_key":"bill_approved",
+  "description":{
+    "pt_BR":"Quando uma fatura for aprovada.",
+    "en":"When a bill is approved."
+  },
+  "trigger_fields":{
+    "type":"local",
+    "fields":[
+      {
+        "key":"id",
+        "name":"id da fatura",
+        "description":"Identificação da fatura na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"due_at",
+        "name":"data de expiração (formatado - DD/MM/YYYY)",
+        "source":"format_date(source[:due_at],%q(%d/%m/%Y))",
+        "description":"Data de expiração da fatura",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.email",
+        "name":"cliente email",
+        "description":"E-mail do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"status",
+        "name":"status",
+        "description":"Status da fatura na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"amount",
+        "name":"valor total",
+        "description":"Valor total da fatura",
+        "field_type":"string"
+      },
+      {
+        "key":"created_at",
+        "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:created_at]",
+        "description":"Data de criação da faturan na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"updated_at",
+        "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:updated_at]",
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"billing_at",
+        "name":"pago em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "description":"Data do pagamento desta fatura.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"customer.id",
+        "name":"id do cliente",
+        "description":"ID do cliente na Vindi.",
+        "field_type":"string"
+      }
+    ]
+  },
+  "trigger_type":"webhook",
+  "webhook":{
+    "message_type":"object",
+    "field":"event.data.bill",
+    "event_filter":{
+      "field":"event.type",
+      "events":["bill_paid"]
+    },
+    "idempotent":[
+      {"type":"body", "field":"event.data.bill.id"},
+      {"type":"body", "field":"event.data.bill.status"}
+    ]
+  }
+}
