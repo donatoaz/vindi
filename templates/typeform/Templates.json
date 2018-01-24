@@ -1,0 +1,38 @@
+[
+  {
+    "app_source": "typeform",
+    "app_target": "vindi",
+    "trigger_key": "new_answer",
+    "action_key": "create_subscription",
+    "name": {"pt_BR": "Quando criar uma nova resposta no Typeform, criar uma nova assinatura",
+          "en": "When create a new answer in Typeform, create a new subscription"},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "typeform",
+    "app_target": "vindi",
+    "trigger_key": "new_answer",
+    "action_key": "create_customer",
+    "name": {"pt_BR": "Quando tiver uma nova resposta no Typeform, criar um novo cliente",
+          "en": "When create a new answer in Typeform, create a new customer"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]

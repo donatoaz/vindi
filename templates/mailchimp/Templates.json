@@ -1,0 +1,38 @@
+[
+	{
+    "app_source": "vindi",
+    "app_target": "mailchimp",
+    "trigger_key": "bill_approved",
+    "action_key": "subscribe_email",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, cadastrar em uma lista do Mailchimp.",
+          "en": "When a bill is approved on VINDI, add in a Mailchimp list."},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "mailchimp",
+    "trigger_key": "bill_created",
+    "action_key": "subscribe_email",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, cadastrar em uma lista do Mailchimp.",
+          "en": "When a bill is created on VINDI, add in a Mailchimp list."},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]

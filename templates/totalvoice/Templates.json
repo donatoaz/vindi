@@ -1,0 +1,110 @@
+[
+	{
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "bill_approved",
+    "action_key": "send_sms",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, enviar mensagem de SMS para um celular",
+          "en": "When a bill is approved on VINDI, send a SMS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "bill_approved",
+    "action_key": "send_tts",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, enviar mensagem de TTS para um celular",
+          "en": "When a bill is approved on VINDI, send a TTS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "bill_created",
+    "action_key": "send_sms",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, enviar mensagem de SMS para um celular",
+          "en": "When a bill is created on VINDI, send a SMS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "bill_created",
+    "action_key": "send_tts",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, enviar mensagem de TTS para um celular",
+          "en": "When a bill is created on VINDI, send a TTS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "charge_rejected",
+    "action_key": "send_sms",
+    "name": {"pt_BR": "Quando uma cobrança for rejeitada no VINDI, enviar mensagem de SMS para um celular",
+          "en": "When a charge is rejected on VINDI, send a SMS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "totalvoice",
+    "trigger_key": "charge_rejected",
+    "action_key": "send_tts",
+    "name": {"pt_BR": "Quando uma cobrança for rejeitada no VINDI, enviar mensagem de TTS para um celular",
+          "en": "When a charge is rejected on VINDI, send a TTS message to a mobile phone"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]

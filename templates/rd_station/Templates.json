@@ -1,0 +1,110 @@
+[
+	{
+    "app_source": "rd_station",
+    "app_target": "vindi",
+    "trigger_key": "lead_update",
+    "action_key": "create_client",
+    "name": {"pt_BR": "Quando mudar de estágio para oportunidade no RDSTATION, criar cliente na VINDI",
+          "en": "When you move from stage to opportunity in RDSTATION, create client on VINDI"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "rd_station",
+    "trigger_key": "subscription_created",
+    "action_key": "send_lead",
+    "name": {"pt_BR": "Quando criar assinatura no VINDI, atualiza status de um lead no RDSTATION",
+          "en": "When create signature on VINDI, update lead status in RDSTATION"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "rd_station",
+    "trigger_key": "subscription_canceled",
+    "action_key": "send_lead",
+    "name": {"pt_BR": "Quando cancelar assinatura no VINDI, atualiza status de um lead no RDSTATION",
+          "en": "When cancel signature on VINDI, update lead status in RDSTATION"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "rd_station",
+    "trigger_key": "bill_approved",
+    "action_key": "send_lead",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, cria ou atualiza um lead no RDSTATION",
+          "en": "When a bill is approved on VINDI, create or update a lead in RDSTATION"},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "rd_station",
+    "trigger_key": "bill_created",
+    "action_key": "send_lead",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, cria ou atualiza um lead no RDSTATION",
+          "en": "When a bill is created on VINDI, create or update a lead in RDSTATION"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "rd_station",
+    "trigger_key": "charge_rejected",
+    "action_key": "send_lead",
+    "name": {"pt_BR": "Quando uma cobrança for rejeitada no VINDI, cria ou atualiza um lead no RDSTATION",
+          "en": "When a charge is rejected on VINDI, create or update a lead in RDSTATION"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]

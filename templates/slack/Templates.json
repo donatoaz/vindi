@@ -1,0 +1,110 @@
+[
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "subscription_created",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando criar assinatura no VINDI, cria uma mensagem no SLACK",
+          "en": "When create signature on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "subscription_canceled",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando cancelar assinatura no VINDI, cria uma mensagem no SLACK",
+          "en": "When cancel signature on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "bill_approved",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, cria uma mensagem no SLACK",
+          "en": "When a bill is approved on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "bill_created",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, cria uma mensagem no SLACK",
+          "en": "When a bill is created on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "charge_rejected",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando uma cobrança for rejeitada no VINDI, cria uma mensagem no SLACK",
+          "en": "When a charge is rejected on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "slack",
+    "trigger_key": "charge_refunded",
+    "action_key": "create_message",
+    "name": {"pt_BR": "Quando uma cobrança for estornada no VINDI, cria uma mensagem no SLACK",
+          "en": "When a charge is refunded on VINDI, create a message in SLACK"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]

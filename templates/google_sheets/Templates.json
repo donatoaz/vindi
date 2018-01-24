@@ -1,0 +1,110 @@
+[
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "subscription_created",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando criar assinatura no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When create signature on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "subscription_canceled",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando cancelar assinatura no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When cancel signature on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "bill_approved",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando uma fatura for aprovada no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When a bill is approved on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "", 
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "bill_created",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando uma fatura for criada no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When a bill is created on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "charge_rejected",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando uma cobrança for rejeitada no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When a charge is rejected on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  },
+  {
+    "app_source": "vindi",
+    "app_target": "google_sheets",
+    "trigger_key": "charge_refunded",
+    "action_key": "insert_row",
+    "name": {"pt_BR": "Quando uma cobrança for estornada no VINDI, inserir uma nova linha em uma planilha",
+          "en": "When a charge is refunded on VINDI, insert a new row in a spreadsheet"},
+    "description": {
+      "why_integrate": [{"pt_BR": "",
+                      "en": ""}],
+      "how_it_works": [{"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""},
+                      {"pt_BR": "",
+                      "en": ""}]
+    }
+  }
+]
