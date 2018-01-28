@@ -31,6 +31,12 @@
         "field_type":"string"
       },
       {
+        "key":"customer.name",
+        "name":"cliente nome",
+        "description":"Nome do cliente",
+        "field_type":"string"
+      },
+      {
         "key":"status",
         "name":"status",
         "description":"Status da fatura na Vindi",
@@ -67,6 +73,52 @@
         "name":"id do cliente",
         "description":"ID do cliente na Vindi.",
         "field_type":"string"
+      },
+      {
+        "key":"bill_items.descriptions",
+        "name":"itens descrição",
+        "source":"source[:bill_items].map{|i|[i[:product][:name],i[:description],i[:quantity],i[:pricing_schema][:short_format]].join(%q( | ))}.join(%q(, ))",
+        "description":"Descrição de todos os itens da fatura (produto, descrição, quantidade e preço)",
+        "field_type":"string"
+      },
+      {
+        "key":"charges.informations",
+        "name":"cobranças informações",
+        "source":"source[:charges].map{|i|[i[:payment_method][:name],i[:amount],i[:status],i[:paid_at]].join(%q( | ))}.join(%q(, ))",
+        "description":"Informação das cobranças (método de pagamento, valor, status e data de pagamento)",
+        "field_type":"string"
+      },
+      {
+        "key":"subscription.id",
+        "name":"id da assinatura",
+        "description":"ID da assinatura na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.registry_code",
+        "name":"CPF/CNPJ do cliente",
+        "description":"CPF/CNPJ do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.status",
+        "name":"status do cliente",
+        "description":"Status do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.phones.details",
+        "name":"cliente telefones detalhes",
+        "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "description":"Detalhes dos telefones do contato (tipo e numero)",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.detail",
+        "name":"cliente endereço detalhe",
+        "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "description":"Endereço do contato",
+        "field_type":"string"
       }
     ]
   },
@@ -81,6 +133,9 @@
     "idempotent":[
       {"type":"body", "field":"event.data.bill.id"},
       {"type":"body", "field":"event.data.bill.status"}
+    ],
+    "additional_resources":[
+      {"name":"customer.id", "method":"/custumers/"}
     ]
   }
 }

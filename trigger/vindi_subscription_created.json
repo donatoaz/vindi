@@ -54,9 +54,9 @@
       },
       {
         "key":"product_items.descriptions",
-        "name":"itens descrição",
-        "source":"source[:product_items].map{|i|[i[:product][:name],i[:quantity],i[:pricing_schema][:price]].join(%q( | ))}.join(%q(, ))",
-        "description":"Descrição de todos os itens (nome, quantidade e preço)",
+        "name":"produtos descrição",
+        "source":"source[:product_items].map{|i|[i[:product][:name],i[:quantity],i[:pricing_schema][:short_format],i[:pricing_schema][:schema_type]].join(%q( | ))}.join(%q(, ))",
+        "description":"Descrição de todos os produtos (nome, quantidade, preço e tipo)",
         "field_type":"string"
       },
       {
@@ -110,6 +110,32 @@
         "name":"id do cliente",
         "description":"ID do cliente na Vindi.",
         "field_type":"string"
+      },
+      {
+        "key":"customer.id.registry_code",
+        "name":"CPF/CNPJ do cliente",
+        "description":"CPF/CNPJ do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.status",
+        "name":"status do cliente",
+        "description":"Status do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.phones.details",
+        "name":"cliente telefones detalhes",
+        "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "description":"Detalhes dos telefones do contato (tipo e numero)",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.detail",
+        "name":"cliente endereço detalhe",
+        "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "description":"Endereço do contato",
+        "field_type":"string"
       }
     ]
   },
@@ -124,6 +150,9 @@
     "idempotent":[
       {"type":"body", "field":"event.data.subscription.id"},
       {"type":"body", "field":"event.data.subscription.status"}
+    ],
+    "additional_resources":[
+      {"name":"customer.id", "method":"/custumers/"}
     ]
   }
 }
