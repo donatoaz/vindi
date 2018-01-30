@@ -21,6 +21,7 @@
         "key":"start_at",
         "name":"data do inicio (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:start_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data do inicio da assinatura",
         "field_type":"string"
       },
@@ -28,6 +29,7 @@
         "key":"end_at",
         "name":"data do fim (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:end_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data do fim da assinatura",
         "field_type":"string"
       },
@@ -35,6 +37,7 @@
         "key":"next_billing_at",
         "name":"data da proxima fatura (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:next_billing_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data da proxima fatura",
         "field_type":"string"
       },
@@ -42,6 +45,7 @@
         "key":"cancel_at",
         "name":"data de cancelamento (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:cancel_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data de cancelamento da assinatura",
         "field_type":"string"
       },
@@ -49,6 +53,7 @@
         "key":"overdue_since",
         "name":"atrasado desde (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:overdue_since],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Atrasado desde ",
         "field_type":"string"
       },
@@ -56,6 +61,7 @@
         "key":"product_items.descriptions",
         "name":"produtos descrição",
         "source":"source[:product_items].map{|i|[i[:product][:name],i[:quantity],i[:pricing_schema][:short_format],i[:pricing_schema][:schema_type]].join(%q( | ))}.join(%q(, ))",
+        "force_source": true,
         "description":"Descrição de todos os produtos (nome, quantidade, preço e tipo)",
         "field_type":"string"
       },
@@ -75,6 +81,7 @@
         "key":"created_at",
         "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
         "source":"source[:created_at]",
+        "force_source": true,
         "description":"Data de criação da faturan na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização.",
         "field_type":"date_time"
       },
@@ -82,6 +89,7 @@
         "key":"updated_at",
         "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
         "source":"source[:updated_at]",
+        "force_source": true,
         "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status.",
         "field_type":"date_time"
       },
@@ -95,6 +103,7 @@
         "key":"current_period.start_at",
         "name":"data do inicio periodo corrente (formatado - DD/MM/YYYY)",
         "source":"format_date(source[:current_period][:start_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data de inicio para o período corrente",
         "field_type":"string"
       },
@@ -102,6 +111,7 @@
         "key":"current_period.end_at",
         "name":"data do fim periodo corrente(formatado - DD/MM/YYYY)",
         "source":"format_date(source[:current_period][:end_at],%q(%d/%m/%Y))",
+        "force_source": true,
         "description":"Data de fim para o período corrente",
         "field_type":"string"
       },
@@ -127,6 +137,7 @@
         "key":"customer.id.phones.details",
         "name":"cliente telefones detalhes",
         "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "force_source": true,
         "description":"Detalhes dos telefones do contato (tipo e numero)",
         "field_type":"string"
       },
@@ -134,6 +145,7 @@
         "key":"customer.id.address.detail",
         "name":"cliente endereço detalhe",
         "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "force_source": true,
         "description":"Endereço do contato",
         "field_type":"string"
       }
