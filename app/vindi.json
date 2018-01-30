@@ -1,0 +1,37 @@
+{
+  "name":"vindi",
+  "app_id":"vindi",
+  "description":{
+    "pt_BR":"A Vindi é uma empresa de pagamentos on-line.",
+    "en":"A Vindi é uma empresa de pagamentos on-line."
+  },
+  "website":"https://www.vindi.com.br",
+  "signup_url":"https://www.vindi.com.br/cadastro/",
+  "api_base_uri":{
+    "production":{
+      "uri":"https://app.vindi.com.br/api/v1",
+      "label":"Produção",
+      "default":true
+    }
+  },
+  "authentication":{
+    "type":"basic_auth",
+    "fields":[
+      {
+        "name":"api_key",
+        "label":"API Key",
+        "mapping":"username",
+        "type":"text"
+      },
+      {
+        "name":"secret",
+        "label":"Secret",
+        "mapping":"password",
+        "type":"hidden"
+      }
+    ],
+    "ping_request":{
+      "method":"/users/current"
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "name":{
+    "pt_BR":"Cobrança rejeitada",
+    "en":"Charge rejected"
+  },
+  "trigger_key":"charge_rejected",
+  "description":{
+    "pt_BR":"Quando uma cobrança for rejeitada.",
+    "en":"When a charge is rejected."
+  },
+  "trigger_fields":{
+    "type":"local",
+    "fields":[
+      {
+        "key":"id",
+        "name":"id da cobrança",
+        "description":"Identificação da cobrança na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"due_at",
+        "name":"data de expiração (formatado - DD/MM/YYYY)",
+        "source":"format_date(source[:due_at],%q(%d/%m/%Y))",
+        "description":"Data de expiração da cobrança",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.email",
+        "name":"cliente email",
+        "description":"E-mail do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.name",
+        "name":"cliente nome",
+        "description":"Nome do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"status",
+        "name":"status",
+        "description":"Status da cobrança na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"amount",
+        "name":"valor total",
+        "description":"Valor da cobrança",
+        "field_type":"string"
+      },
+      {
+        "key":"created_at",
+        "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:created_at]",
+        "description":"Data de criação da cobrança na Vindi.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"updated_at",
+        "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:updated_at]",
+        "description":"Data da última atualização da cobrança na Vindi.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"paid_at",
+        "name":"pago em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "description":"Data de pagamento.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"customer.id",
+        "name":"id do cliente",
+        "description":"ID do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"bill.id",
+        "name":"id da fatura",
+        "description":"ID da fatura na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"payment_method.name",
+        "name":"método de pagamento nome",
+        "description":"Método de pagamento.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.registry_code",
+        "name":"CPF/CNPJ do cliente",
+        "description":"CPF/CNPJ do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.status",
+        "name":"status do cliente",
+        "description":"Status do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.phones.details",
+        "name":"cliente telefones detalhes",
+        "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "description":"Detalhes dos telefones do contato (tipo e numero)",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.detail",
+        "name":"cliente endereço detalhe",
+        "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "description":"Endereço do contato",
+        "field_type":"string"
+      }
+    ]
+  },
+  "trigger_type":"webhook",
+  "webhook":{
+    "message_type":"object",
+    "field":"event.data.charge",
+    "event_filter":{
+      "field":"event.type",
+      "events":["charge_rejected"]
+    },
+    "idempotent":[
+      {"type":"body", "field":"event.data.charge.id"},
+      {"type":"body", "field":"event.data.charge.status"}
+    ],
+    "additional_resources":[
+      {"name":"customer.id", "method":"/custumers/"}
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "name":{
+    "pt_BR":"Fatura criada",
+    "en":"Bill created"
+  },
+  "trigger_key":"bill_created",
+  "description":{
+    "pt_BR":"Quando uma fatura for criada.",
+    "en":"When a bill is created."
+  },
+  "trigger_fields":{
+    "type":"local",
+    "fields":[
+      {
+        "key":"id",
+        "name":"id da fatura",
+        "description":"Identificação da fatura na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"due_at",
+        "name":"data de expiração (formatado - DD/MM/YYYY)",
+        "source":"format_date(source[:due_at],%q(%d/%m/%Y))",
+        "description":"Data de expiração da fatura",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.email",
+        "name":"cliente email",
+        "description":"E-mail do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.name",
+        "name":"cliente nome",
+        "description":"Nome do cliente",
+        "field_type":"string"
+      },
+      {
+        "key":"status",
+        "name":"status",
+        "description":"Status da fatura na Vindi",
+        "field_type":"string"
+      },
+      {
+        "key":"amount",
+        "name":"valor total",
+        "description":"Valor total da fatura",
+        "field_type":"string"
+      },
+      {
+        "key":"created_at",
+        "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:created_at]",
+        "description":"Data de criação da faturan na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"updated_at",
+        "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "source":"source[:updated_at]",
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"billing_at",
+        "name":"pago em (YYYY-MM-DDTHH:mm:ss-Z)",
+        "description":"Data do pagamento desta fatura.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"customer.id",
+        "name":"id do cliente",
+        "description":"ID do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"bill_items.descriptions",
+        "name":"itens descrição",
+        "source":"source[:bill_items].map{|i|[i[:product][:name],i[:description],i[:quantity],i[:pricing_schema][:short_format]].join(%q( | ))}.join(%q(, ))",
+        "description":"Descrição de todos os itens da fatura (produto, descrição, quantidade e preço)",
+        "field_type":"string"
+      },
+      {
+        "key":"charges.informations",
+        "name":"cobranças informações",
+        "source":"source[:charges].map{|i|[i[:payment_method][:name],i[:amount],i[:status],i[:paid_at]].join(%q( | ))}.join(%q(, ))",
+        "description":"Informação das cobranças (método de pagamento, valor, status e data de pagamento)",
+        "field_type":"string"
+      },
+      {
+        "key":"subscription.id",
+        "name":"id da assinatura",
+        "description":"ID da assinatura na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.registry_code",
+        "name":"CPF/CNPJ do cliente",
+        "description":"CPF/CNPJ do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.status",
+        "name":"status do cliente",
+        "description":"Status do cliente na Vindi.",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.phones.details",
+        "name":"cliente telefones detalhes",
+        "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "description":"Detalhes dos telefones do contato (tipo e numero)",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.detail",
+        "name":"cliente endereço detalhe",
+        "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "description":"Endereço do contato",
+        "field_type":"string"
+      }
+    ]
+  },
+  "trigger_type":"webhook",
+  "webhook":{
+    "message_type":"object",
+    "field":"event.data.bill",
+    "event_filter":{
+      "field":"event.type",
+      "events":["bill_created"]
+    },
+    "idempotent":[
+      {"type":"body", "field":"event.data.bill.id"},
+      {"type":"body", "field":"event.data.bill.status"}
+    ],
+    "additional_resources":[
+      {"name":"customer.id", "method":"/custumers/"}
+    ]
+  }
+}
