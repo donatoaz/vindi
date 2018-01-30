@@ -54,7 +54,31 @@
         "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
         "source":"source[:created_at]",
         "force_source": true,
-        "description":"Data de criação da cobrança na Vindi.",
+        "description":"Data de criação da fatura na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"created_at.date",
+        "name":"criado em (DD/MM/YYYY)",
+        "source":"format_date(source[:created_at],%q(%d/%m/%Y))",
+        "force_source": true,
+        "description":"Data de criação da fatura na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização, no formato DD/MM/YYYY.",
+        "field_type":"date"
+      },
+      {
+        "key":"created_at.time",
+        "name":"criado em (H:M:S)",
+        "source":"format_date(source[:created_at],%q(%H:%M:%S))",
+        "force_source": true,
+        "description":"Data de criação da fatura na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização, no formato H:M:S.",
+        "field_type":"time"
+      },
+      {
+        "key":"created_at.datetime",
+        "name":"criado em (DD/MM/YYYY - H:M:S)",
+        "source":"format_date(source[:created_at],%q(%d/%m/%Y - %H:%M:%S))",
+        "force_source": true,
+        "description":"Data de criação da fatura na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização, no formato DD/MM/YYYY - H:M:S.",
         "field_type":"date_time"
       },
       {
@@ -62,7 +86,31 @@
         "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
         "source":"source[:updated_at]",
         "force_source": true,
-        "description":"Data da última atualização da cobrança na Vindi.",
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status.",
+        "field_type":"date_time"
+      },
+      {
+        "key":"updated_at.date",
+        "name":"atualizado em (DD/MM/YYYY)",
+        "source":"format_date(source[:updated_at],%q(%d/%m/%Y))",
+        "force_source": true,
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status, no formato DD/MM/YYYY.",
+        "field_type":"date"
+      },
+      {
+        "key":"updated_at.time",
+        "name":"atualizado em (H:M:S)",
+        "source":"format_date(source[:updated_at],%q(%H:%M:%S))",
+        "force_source": true,
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status, no formato H:M:S.",
+        "field_type":"time"
+      },
+      {
+        "key":"updated_at.datetime",
+        "name":"atualizado em (DD/MM/YYYY - H:M:S)",
+        "source":"format_date(source[:updated_at],%q(%d/%m/%Y - %H:%M:%S))",
+        "force_source": true,
+        "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status, no formato DD/MM/YYYY - H:M:S.",
         "field_type":"date_time"
       },
       {
@@ -196,7 +244,8 @@
       {"type":"body", "field":"event.data.charge.status"}
     ],
     "additional_resources":[
-      {"name":"customer.id", "method":"/custumers/"}
+      {"name":"customer.id", "method":"/custumers/"},
+      {"name":"bill.id", "method":"/bills/"}
     ]
   }
 }
