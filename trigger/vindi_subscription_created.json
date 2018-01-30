@@ -134,19 +134,83 @@
         "field_type":"string"
       },
       {
-        "key":"customer.id.phones.details",
-        "name":"cliente telefones detalhes",
-        "source":"source[:customer.id.phones].map{|i|[i[:phone_type],i[:number]].join(%q( | ))}.join(%q(, ))",
+        "key":"customer.id.phone_mobile",
+        "name":"cliente celular",
+        "source":"source[:customer.id.phones].map{|i| i[:number] if i[:phone_type] == 'mobile'}.first",
         "force_source": true,
-        "description":"Detalhes dos telefones do contato (tipo e numero)",
+        "description":"Celular do contato",
         "field_type":"string"
       },
       {
-        "key":"customer.id.address.detail",
-        "name":"cliente endereço detalhe",
-        "source":"source[:customer.id.address.street], source[:customer.id.address.number] source[:customer.id.address.aditional_details], source[:customer.id.address.neighborhood] - source[:customer.id.address.city] - source[:customer.id.address.state]",
+        "key":"customer.id.phone_landline",
+        "name":"cliente telefone fixo",
+        "source":"source[:customer.id.phones].map{|i| i[:number] if i[:phone_type] == 'landline'}.first",
         "force_source": true,
-        "description":"Endereço do contato",
+        "description":"Telefone fixo do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.zip_code",
+        "name":"cliente endereço cep",
+        "source":"source[:customer.id.address.zipcode]",
+        "force_source": true,
+        "description":"Cep do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.street",
+        "name":"cliente endereço rua",
+        "source":"source[:customer.id.address.street]",
+        "force_source": true,
+        "description":"Rua do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.number",
+        "name":"cliente endereço numero",
+        "source":"source[:customer.id.address.number]",
+        "force_source": true,
+        "description":"Numero do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.neighborhood",
+        "name":"cliente endereço bairro",
+        "source":"source[:customer.id.address.neighborhood]",
+        "force_source": true,
+        "description":"Bairro do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.city",
+        "name":"cliente endereço cidade",
+        "source":"source[:customer.id.address.city]",
+        "force_source": true,
+        "description":"Cidade do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.state",
+        "name":"cliente endereço estado",
+        "source":"source[:customer.id.address.state]",
+        "force_source": true,
+        "description":"Estado do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.country",
+        "name":"cliente endereço pais",
+        "source":"source[:customer.id.address.country]",
+        "force_source": true,
+        "description":"País do Endereço do contato",
+        "field_type":"string"
+      },
+      {
+        "key":"customer.id.address.aditional_details",
+        "name":"cliente endereço complemento",
+        "source":"source[:customer.id.address.aditional_details]",
+        "force_source": true,
+        "description":"Complemento do Endereço do contato",
         "field_type":"string"
       }
     ]
