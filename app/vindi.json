@@ -21,7 +21,8 @@
         "name":"api_key",
         "label":"API Key",
         "mapping":"username",
-        "type":"text"
+        "type":"text",
+        "validations":[{"name":"min_length", "value":7}]
       },
       {
         "name":"secret",
