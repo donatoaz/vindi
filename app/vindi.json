@@ -1,6 +1,7 @@
 {
   "name":"vindi",
   "app_id":"vindi",
+  "color":"#5D6973",
   "description":{
     "pt_BR":"A Vindi é uma empresa de pagamentos on-line.",
     "en":"A Vindi é uma empresa de pagamentos on-line."
@@ -28,7 +29,8 @@
         "name":"secret",
         "label":"Secret",
         "mapping":"password",
-        "type":"hidden"
+        "type":"hidden",
+        "default":"."
       }
     ],
     "ping_request":{
