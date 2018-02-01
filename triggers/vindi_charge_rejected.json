@@ -244,7 +244,7 @@
       {"type":"body", "field":"event.data.charge.status"}
     ],
     "additional_resources":[
-      {"name":"customer.id", "method":"/custumers/"},
+      {"name":"customer.id", "method":"/customers/"},
       {"name":"bill.id", "method":"/bills/"}
     ]
   }
