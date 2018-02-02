@@ -1,12 +1,12 @@
 {
 	"name": {
-    "pt_BR": "Criar um novo cliente",
-    "en": "Create a new customer"
+    "pt_BR": "Criar uma nova assinatura",
+    "en": "Create a new subscription"
   },
-  "action_key": "create_customer",
+  "action_key": "create_subscription",
   "description": {
-  	"pt_BR": "Criar um novo cliente",
-    "en": "Create a new customer"
+  	"pt_BR": "Criar uma nova assinatura",
+    "en": "Create a new subscription"
   },
   "action_fields": {
     "fields": [
@@ -58,7 +58,7 @@
                 "en": "The ID of the plan"
             },
             "required": true,
-            "visible": false,
+            "visible": true,
             "advanced": false,
             "field_type": "dropdown",
             "data_type": "string",
