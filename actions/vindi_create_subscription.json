@@ -102,30 +102,29 @@
             "json_api": true,
             "method_name": "/customers",
             "params": [
-              {"field": "query", "value": "email:{customer_email}"}
+              {"field": "query", "value": "email:{customer_email}", "type": "string"}
             ],
-            "response_field": ["customers"],
-            "append_params": [{"name": "customer", "value": "data[:hook].first"}]
+            "response_field": ["customers"]
           }
         },
         {
           "name": "Criar Cliente",
           "conditions": [
-            {"field": "customer.id", "condition": "equal", "value": null}
+            {"field": "id", "condition": "equal", "value": null}
           ],
           "request": {
             "verb": "post",
             "json_api": true,
             "method_name": "/customers",
             "params": [
-              {"field": "name", "value": "{customer_name}"},
-              {"field": "email", "value": "{customer_email}"}
+              {"field": "name", "value": "{customer_name}", "type": "string"},
+              {"field": "email", "value": "{customer_email}", "type": "string"}
             ]
           }
         }
       ],
       "append_fields": [
-        {"field": "customer_id", "value": "{customer.id}"}  
+        {"field": "customer_id", "value": "{customer.id}", "type": "string"}
       ]
     }
   }
