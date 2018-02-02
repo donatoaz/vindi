@@ -1,0 +1,184 @@
+{
+	"name": {
+    "pt_BR": "Criar um novo cliente",
+    "en": "Create a new customer"
+  },
+  "action_key": "create_customer",
+  "description": {
+  	"pt_BR": "Criar um novo cliente",
+    "en": "Create a new customer"
+  },
+  "action_fields": {
+    "fields": [
+        {
+            "key": "customer_email",
+            "name": { "pt_BR": "cliente email", "en": "customer email" },
+            "description": {
+                "pt_BR": "O email do cliente",
+                "en": "The email of the customer"
+            },
+            "required": true,
+            "visible": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "not_include_field_in_request": true
+        },
+        {
+            "key": "customer_name",
+            "name": { "pt_BR": "cliente nome", "en": "customer name" },
+            "description": {
+                "pt_BR": "O nome do cliente",
+                "en": "The name of the customer"
+            },
+            "required": true,
+            "visible": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "not_include_field_in_request": true
+        },
+        {
+            "key": "customer_id",
+            "name": { "pt_BR": "cliente id", "en": "customer id" },
+            "description": {
+                "pt_BR": "O ID do cliente",
+                "en": "The ID of the customer"
+            },
+            "required": true,
+            "visible": false,
+            "advanced": false,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 100
+        },
+        {
+            "key": "product_name",
+            "name": { "pt_BR": "produto nome", "en": "product name" },
+            "description": {
+                "pt_BR": "Nome do produto",
+                "en": "Product's name"
+            },
+            "required": true,
+            "visible": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "not_include_field_in_request": true
+        },
+        {
+            "key": "product_description",
+            "name": { "pt_BR": "produto descrição", "en": "product description" },
+            "description": {
+                "pt_BR": "Descrição do produto",
+                "en": "Product's description"
+            },
+            "required": true,
+            "visible": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "not_include_field_in_request": true
+        },
+        {
+            "key": "amount",
+            "name": { "pt_BR": "fatura valor", "en": "bill price" },
+            "description": {
+                "pt_BR": "Valor da fatura",
+                "en": "Bill's price"
+            },
+            "required": true,
+            "visible": true,
+            "advanced": false,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 100
+        },
+        {
+            "key": "product_id",
+            "name": { "pt_BR": "produto id", "en": "product id" },
+            "description": {
+                "pt_BR": "O ID do produto",
+                "en": "The ID of the product"
+            },
+            "required": true,
+            "visible": false,
+            "advanced": false,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 100
+        },
+        {
+          "key": "payment_method_code",
+          "name": {
+            "pt_BR": "método pagamento",
+            "en": "method payment"
+          },
+          "description": {
+            "pt_BR": "Código do método de pagamento",
+            "en": "Payment method code"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "dropdown",
+          "data_type": "string",
+          "list": {
+            "type": "remote",
+            "helper_method": "payment_method_list"
+          }
+        }
+    ]
+  },
+  "request": {
+    "method_name": "/bills",
+    "json_api": true,
+    "error_fields" : ["errors"],
+    "pre_hooks":{
+      "hooks": [
+        {
+          "name": "Buscar Cliente",
+          "request": {
+            "verb": "get",
+            "json_api": true,
+            "method_name": "/customers",
+            "params": [
+              {"field": "query", "value": "email:{customer_email}"}
+            ],
+            "response_field": ["customers"],
+            "append_params": [{"name": "customer", "value": "data[:hook].first"}]
+          }
+        },
+        {
+          "name": "Criar Cliente",
+          "conditions": [
+            {"field": "customer.id", "condition": "equal", "value": null}
+          ],
+          "request": {
+            "verb": "post",
+            "json_api": true,
+            "method_name": "/customers",
+            "params": [
+              {"field": "name", "value": "{customer_name}"},
+              {"field": "email", "value": "{customer_email}"}
+            ]
+          }
+        },
+        {
+          "name": "Criar Produto",
+          "request": {
+            "verb": "post",
+            "json_api": true,
+            "method_name": "/products",
+            "params": [
+              {"field": "name", "value": "{product_name}"},
+              {"field": "description", "value": "{product_description}"},
+              {"field": "pricing_schema.price", "value": "{amount}"}
+            ],
+            "response_field": ["product"]
+          }
+        }
+      ],
+      "append_fields": [
+        {"field": "customer_id", "value": "{customer.id}"},
+        {"field": "product_id", "value": "{id}"}
+      ]
+    }
+  }
+}

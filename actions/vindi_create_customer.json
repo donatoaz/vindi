@@ -1,0 +1,187 @@
+{
+	"name": {
+    "pt_BR": "Criar um novo cliente",
+    "en": "Create a new customer"
+  },
+  "action_key": "create_customer",
+  "description": {
+  	"pt_BR": "Criar um novo cliente",
+    "en": "Create a new customer"
+  },
+  "action_fields": {
+    "fields": [
+        {
+            "key": "name",
+            "name": { "pt_BR": "nome", "en": "name" },
+            "description": {"pt_BR": "O nome do cliente","en": "The name of the customer"},
+            "required": true,
+            "visible": true,
+            "advanced": false,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 200
+        },
+        {
+            "key": "email",
+            "name": { "pt_BR": "email", "en": "email" },
+            "description": {
+                "pt_BR": "O email do cliente",
+                "en": "The email of the customer"
+            },
+            "required": false,
+            "visible": true,
+            "advanced": false,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 100
+        },
+        {
+            "key": "registry_code",
+            "name": { "pt_BR": "documento", "en": "document" },
+            "description": {
+                "pt_BR": "O numero de documento do cliente - pode ser cpf ou cnpj",
+                "en": "The document number of the customer - can be cpf or cnpj"
+            },
+            "required": false,
+            "visible": true,
+            "advanced": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "max": 50
+        },
+        {
+          "key": "address.zipcode",
+          "name": {
+            "pt_BR": "endereço cep",
+            "en": "address zip code"
+          },
+          "description": {
+            "pt_BR": "O cep do endereço do cliente",
+            "en": "The customer's address zip code"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.street",
+          "name": {
+            "pt_BR": "endereço rua",
+            "en": "address street"
+          },
+          "description": {
+            "pt_BR": "A rua do endereço do cliente",
+            "en": "The customer's address street"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.number",
+          "name": {
+            "pt_BR": "endereço número",
+            "en": "address number"
+          },
+          "description": {
+            "pt_BR": "O número do endereço do cliente",
+            "en": "The customer's address number"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.additional_details",
+          "name": {
+            "pt_BR": "endereço complemento",
+            "en": "address complement"
+          },
+          "description": {
+            "pt_BR": "O complemento do endereço do cliente",
+            "en": "The customer's address complement"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.neighborhood",
+          "name": {
+            "pt_BR": "endereço bairro",
+            "en": "address neighborhood"
+          },
+          "description": {
+            "pt_BR": "O bairro do endereço do cliente",
+            "en": "The customer's address neighborhood"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.city",
+          "name": {
+            "pt_BR": "endereço cidade",
+            "en": "address city"
+          },
+          "description": {
+            "pt_BR": "A Cidade do endereço do cliente",
+            "en": "The customer's address city"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.state",
+          "name": {
+            "pt_BR": "endereço estado",
+            "en": "address state"
+          },
+          "description": {
+            "pt_BR": "O Estado do endereço do cliente",
+            "en": "The customer's address state"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        },
+        {
+          "key": "address.country",
+          "name": {
+            "pt_BR": "endereço pais",
+            "en": "address country"
+          },
+          "description": {
+            "pt_BR": "O País do endereço do cliente",
+            "en": "The customer's address country"
+          },
+          "required": false,
+          "visible": true,
+          "advanced": true,
+          "field_type": "custom",
+          "data_type": "string"
+        }
+    ]
+  },
+  "request": {
+    "method_name": "/customers",
+    "json_api": true,
+    "error_fields" : ["errors"]
+  }
+}
