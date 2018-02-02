@@ -1,20 +1,19 @@
 {
   "name": "lista de planos",
   "helper_method_key": "plan_list",
-  "requests": [ 
+  "requests": [
   	{
       "method_name": "/plans",
       "response_field": "plans",
       "params": {},
       "mapping": {
         "label": {
-          "fields": ["name"],
-          "prefix": "--> "
+          "fields": ["name"]
         },
         "value": {
           "field": "id"
         }
-      }  
+      }
     }
   ]
 }

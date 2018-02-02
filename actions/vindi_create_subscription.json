@@ -11,11 +11,11 @@
   "action_fields": {
     "fields": [
         {
-            "key": "customer_email",
-            "name": { "pt_BR": "cliente email", "en": "customer email" },
+            "key": "customer_name",
+            "name": { "pt_BR": "cliente nome", "en": "customer name" },
             "description": {
-                "pt_BR": "O email do cliente",
-                "en": "The email of the customer"
+                "pt_BR": "O nome do cliente",
+                "en": "The name of the customer"
             },
             "required": true,
             "visible": true,
@@ -24,11 +24,11 @@
             "not_include_field_in_request": true
         },
         {
-            "key": "customer_name",
-            "name": { "pt_BR": "cliente nome", "en": "customer name" },
+            "key": "customer_email",
+            "name": { "pt_BR": "cliente email", "en": "customer email" },
             "description": {
-                "pt_BR": "O nome do cliente",
-                "en": "The name of the customer"
+                "pt_BR": "O email do cliente",
+                "en": "The email of the customer"
             },
             "required": true,
             "visible": true,
@@ -43,12 +43,11 @@
                 "pt_BR": "O ID do cliente",
                 "en": "The ID of the customer"
             },
-            "required": true,
+            "required": false,
             "visible": false,
             "advanced": false,
-            "field_type": "custom",
-            "data_type": "string",
-            "max": 100
+            "field_type": "string",
+            "data_type": "integer"
         },
         {
             "key": "plan_id",
@@ -57,6 +56,8 @@
                 "pt_BR": "O ID do plano",
                 "en": "The ID of the plan"
             },
+            "label": { "pt_BR": "Plano", "en": "Plan" },
+            "placeholder": { "pt_BR": "Selecione um plano", "en": "Select a plan" },
             "required": true,
             "visible": true,
             "advanced": false,
@@ -71,15 +72,20 @@
           "key": "payment_method_code",
           "name": {
             "pt_BR": "método pagamento",
-            "en": "method payment"
+            "en": "payment method"
           },
           "description": {
             "pt_BR": "Código do método de pagamento",
             "en": "Payment method code"
           },
-          "required": false,
+          "label": { "pt_BR": "Método pagamento", "en": "Payment method" },
+          "placeholder": {
+            "pt_BR": "Selecione um método de pagamento",
+            "en": "Select a payment method"
+          },
+          "required": true,
           "visible": true,
-          "advanced": true,
+          "advanced": false,
           "field_type": "dropdown",
           "data_type": "string",
           "list": {
@@ -90,7 +96,7 @@
     ]
   },
   "request": {
-    "method_name": "/bills",
+    "method_name": "/subscriptions",
     "json_api": true,
     "error_fields" : ["errors"],
     "pre_hooks":{

@@ -1,20 +1,19 @@
 {
   "name": "lista de métodos de pagamento",
   "helper_method_key": "payment_method_list",
-  "requests": [ 
+  "requests": [
   	{
       "method_name": "/payment_methods",
       "response_field": "payment_methods",
       "params": {},
       "mapping": {
         "label": {
-          "fields": ["name"],
-          "prefix": "--> "
+          "fields": ["name"]
         },
         "value": {
           "field": "code"
         }
-      }  
+      }
     }
   ]
 }
