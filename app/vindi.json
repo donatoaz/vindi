@@ -3,8 +3,8 @@
   "app_id":"vindi",
   "color":"#5D6973",
   "description":{
-    "pt_BR":"A Vindi é uma empresa de pagamentos on-line.",
-    "en":"A Vindi é uma empresa de pagamentos on-line."
+    "pt_BR":"A Vindi é uma empresa que possibilita você receber pagamentos on-line. Além de checkout transparente, cobrança para e-commerce, assinaturas, mensalidades, notificações automáticas de cobrança por e-mail, sms e muito mais!",
+    "en":""
   },
   "website":"https://www.vindi.com.br",
   "signup_url":"https://www.vindi.com.br/cadastro/",
@@ -35,6 +35,194 @@
     ],
     "ping_request":{
       "method":"/users/current"
+    },
+    "tutorial": {
+      "link": {
+        "pt_BR": "Onde encontrar a chave de acesso da Vindi?",
+        "en": "Where to find Vindi access key?"
+      },
+      "steps": [
+        {
+          "title": {
+            "pt_BR": "Passo 1",
+            "en": "Step 1"
+          },
+          "content": {
+            "pt_BR": "Ao acessar sua plataforma Vindi, clique em \"Configurações\"",
+            "en": "Ao acessar sua plataforma Vindi, clique em \"Configurações\""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/step1.png",
+            "en": "../images/token-steps/vindi/step1.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 2",
+            "en": "Step 2"
+          },
+          "content": {
+            "pt_BR": "Em \"Configurações\", clique em \"Chave de Acesso API\"",
+            "en": "Em \"Configurações\", clique em \"Chave de Acesso API\""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/step2.png",
+            "en": "../images/token-steps/vindi/step2.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 3",
+            "en": "Step 3"
+          },
+          "content": {
+            "pt_BR": "Clique em \"Nova Chave\"",
+            "en": "Clique em \"Nova Chave\""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/step3.png",
+            "en": "../images/token-steps/vindi/step3.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 4",
+            "en": "Step 4"
+          },
+          "content": {
+            "pt_BR": "Preencha as informações para a criação da chave e clique em \"Criar Chave de acesso\"",
+            "en": "Preencha as informações para a criação da chave e clique em \"Criar Chave de acesso\""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/step4.png",
+            "en": "../images/token-steps/vindi/step4.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 5",
+            "en": "Step 5"
+          },
+          "content": {
+            "pt_BR": "Pronto! Sua Chave de acesso API está criada (Lembre-se de salvar a chave em um local seguro, pois ela só pode ser visualizada uma única vez)",
+            "en": "Pronto! Sua Chave de acesso API está criada (Lembre-se de salvar a chave em um local seguro, pois ela só pode ser visualizada uma única vez)"
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/step5.png",
+            "en": "../images/token-steps/vindi/step5.png"
+          }
+        }
+      ]
+    },
+    "webhook_tutorial": {
+      "pre_tutorial": {
+        "link": "https://app.vindi.com.br/admin/hooks",
+        "label": { "pt_BR": "Configurações de webhooks", "en": "" }
+      },
+      "link": {
+        "pt_BR": "Como adicionar a URL da Pluga como webhook na Vindi?",
+        "en": ""
+      },
+      "steps": [
+        {
+          "title": {
+            "pt_BR": "Passo 1",
+            "en": "Step 1"
+          },
+          "content": {
+            "pt_BR": "Ao acessar sua plataforma Vindi, vá em \"Configurações\"",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step1.png",
+            "en": "../images/token-steps/vindi/webhook/step1.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 2",
+            "en": "Step 2"
+          },
+          "content": {
+            "pt_BR": "Em \"Configurações\", clique em \"Webhooks\"",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step2.png",
+            "en": "../images/token-steps/vindi/webhook/step2.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 3",
+            "en": "Step 3"
+          },
+          "content": {
+            "pt_BR": "Após entrar na página de \"Webhooks\", clique em \"Novo webhook\"",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step3.png",
+            "en": "../images/token-steps/vindi/webhook/step3.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 4",
+            "en": "Step 4"
+          },
+          "content": {
+            "pt_BR": "Dentro da página de \"Webhooks\", possui o campo \"URL\". Neste campo, você irá inserir a URL da Pluga que receberá os eventos automáticos da plataforma Vindi",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step4.png",
+            "en": "../images/token-steps/vindi/webhook/step4.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 5",
+            "en": "Step 5"
+          },
+          "content": {
+            "pt_BR": "Após inserir a URL, clique em \"Testar\" e veja se é aprovado ou rejeitado",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step5.png",
+            "en": "../images/token-steps/vindi/webhook/step5.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 6",
+            "en": "Step 6"
+          },
+          "content": {
+            "pt_BR": "Habilite os eventos que deseja receber e clique em \"Criar Webhook\"",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step6.png",
+            "en": "../images/token-steps/vindi/webhook/step6.png"
+          }
+        },
+        {
+          "title": {
+            "pt_BR": "Passo 7",
+            "en": "Step 7"
+          },
+          "content": {
+            "pt_BR": "Pronto! Agora a Pluga irá receber automaticamente os eventos que você selecionou da plataforma Vindi",
+            "en": ""
+          },
+          "img_url": {
+            "pt_BR": "../images/token-steps/vindi/webhook/step7.png",
+            "en": "../images/token-steps/vindi/webhook/step7.png"
+          }
+        }
+      ]
     }
   }
 }
