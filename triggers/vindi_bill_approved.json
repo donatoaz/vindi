@@ -50,6 +50,13 @@
         "field_type":"string"
       },
       {
+        "key":"amount_text",
+        "name":"valor total (texto)",
+        "source":"format_currency(source[:amount])",
+        "description":"Valor total da fatura formatado",
+        "field_type":"string"
+      },
+      {
         "key":"created_at",
         "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
         "source":"source[:created_at]",
