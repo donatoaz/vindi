@@ -53,14 +53,13 @@
         "key":"amount_text",
         "name":"valor total (texto)",
         "source":"format_currency(source[:amount])",
+        "force_source": true,
         "description":"Valor total da fatura formatado",
         "field_type":"string"
       },
       {
         "key":"created_at",
         "name":"criado em (YYYY-MM-DDTHH:mm:ss-Z)",
-        "source":"source[:created_at]",
-        "force_source": true,
         "description":"Data de criação da fatura na Vindi. Pode ser que a data de criação não seja mesma a do pagamento aprovado. Para esta data use a data de atualização.",
         "field_type":"date_time"
       },
@@ -91,8 +90,6 @@
       {
         "key":"updated_at",
         "name":"atualizado em (YYYY-MM-DDTHH:mm:ss-Z)",
-        "source":"source[:updated_at]",
-        "force_source": true,
         "description":"Data da última atualização da transação na Vindi, onde provavelmente houve a última mudança de status.",
         "field_type":"date_time"
       },
@@ -127,7 +124,7 @@
         "field_type":"date_time"
       },
       {
-        "key":"customer.id",
+        "key":"customer.id.id",
         "name":"id do cliente",
         "description":"ID do cliente na Vindi.",
         "field_type":"string"
@@ -169,7 +166,7 @@
       {
         "key":"customer.id.phone_mobile",
         "name":"cliente celular",
-        "source":"source[:customer.id.phones].map{|i| i[:number] if i[:phone_type] == 'mobile'}.first",
+        "source":"source[:customer][:id][:phones].find{|i|i[:phone_type] == 'mobile'}.try{|i|i[:number]}",
         "force_source": true,
         "description":"Celular do contato",
         "field_type":"string"
@@ -177,72 +174,56 @@
       {
         "key":"customer.id.phone_landline",
         "name":"cliente telefone fixo",
-        "source":"source[:customer.id.phones].map{|i| i[:number] if i[:phone_type] == 'landline'}.first",
+        "source":"source[:customer][:id][:phones].find{|i|i[:phone_type] == 'landline'}.try{|i|i[:number]}",
         "force_source": true,
         "description":"Telefone fixo do contato",
         "field_type":"string"
       },
       {
-        "key":"customer.id.address.zip_code",
+        "key":"customer.id.address.zipcode",
         "name":"cliente endereço cep",
-        "source":"source[:customer.id.address.zipcode]",
-        "force_source": true,
         "description":"Cep do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.street",
         "name":"cliente endereço rua",
-        "source":"source[:customer.id.address.street]",
-        "force_source": true,
         "description":"Rua do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.number",
         "name":"cliente endereço numero",
-        "source":"source[:customer.id.address.number]",
-        "force_source": true,
         "description":"Numero do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.neighborhood",
         "name":"cliente endereço bairro",
-        "source":"source[:customer.id.address.neighborhood]",
-        "force_source": true,
         "description":"Bairro do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.city",
         "name":"cliente endereço cidade",
-        "source":"source[:customer.id.address.city]",
-        "force_source": true,
         "description":"Cidade do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.state",
         "name":"cliente endereço estado",
-        "source":"source[:customer.id.address.state]",
-        "force_source": true,
         "description":"Estado do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.country",
         "name":"cliente endereço pais",
-        "source":"source[:customer.id.address.country]",
-        "force_source": true,
         "description":"País do Endereço do contato",
         "field_type":"string"
       },
       {
         "key":"customer.id.address.aditional_details",
         "name":"cliente endereço complemento",
-        "source":"source[:customer.id.address.aditional_details]",
-        "force_source": true,
         "description":"Complemento do Endereço do contato",
         "field_type":"string"
       }
