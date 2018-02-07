@@ -50,23 +50,30 @@
             "data_type": "integer"
         },
         {
+            "key": "plan_name",
+            "name": { "pt_BR": "plano nome", "en": "plan name" },
+            "description": {
+                "pt_BR": "Nome do plano",
+                "en": "Plan name"
+            },
+            "required": true,
+            "visible": true,
+            "field_type": "custom",
+            "data_type": "string",
+            "not_include_field_in_request": true
+        },
+        {
             "key": "plan_id",
             "name": { "pt_BR": "plano id", "en": "plan id" },
             "description": {
                 "pt_BR": "O ID do plano",
                 "en": "The ID of the plan"
             },
-            "label": { "pt_BR": "Plano", "en": "Plan" },
-            "placeholder": { "pt_BR": "Selecione um plano", "en": "Select a plan" },
-            "required": true,
-            "visible": true,
+            "required": false,
+            "visible": false,
             "advanced": false,
-            "field_type": "dropdown",
-            "data_type": "string",
-            "list": {
-              "type": "remote",
-              "helper_method": "plan_list"
-            }
+            "field_type": "string",
+            "data_type": "integer"
         },
         {
           "key": "payment_method_code",
@@ -110,7 +117,8 @@
             "params": [
               {"field": "query", "value": "email:{customer_email}", "type": "string"}
             ],
-            "response_field": ["customers"]
+            "response_field": ["customers"],
+            "append_params": [{"name": "customer", "value": "data[:hook].first"}]
           }
         },
         {
@@ -127,10 +135,24 @@
               {"field": "email", "value": "{customer_email}", "type": "string"}
             ]
           }
+        },
+        {
+          "name": "Buscar Plano",
+          "request": {
+            "verb": "get",
+            "json_api": true,
+            "method_name": "/plans",
+            "params": [
+              {"field": "query", "value": "name:{plan_name}", "type": "string"}
+            ],
+            "response_field": ["plans"],
+            "append_params": [{"name": "plan", "value": "data[:hook].first"}]
+          }
         }
       ],
       "append_fields": [
-        {"field": "customer_id", "value": "{customer.id}", "type": "string"}
+        {"field": "customer_id", "value": "{customer.id}", "type": "string"},
+        {"field": "plan_id", "value": "{plan.id}", "type": "string"}
       ]
     }
   }
