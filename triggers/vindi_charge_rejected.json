@@ -124,6 +124,30 @@
         "field_type":"date_time"
       },
       {
+        "key":"paid_at.date",
+        "name":"pago em (DD/MM/YYYY)",
+        "source":"format_date(source[:paid_at],%q(%d/%m/%Y))",
+        "force_source": true,
+        "description":"Data de pagamento, no formato DD/MM/YYYY.",
+        "field_type":"date"
+      },
+      {
+        "key":"paid_at.time",
+        "name":"pago em (H:M:S)",
+        "source":"format_date(source[:paid_at],%q(%H:%M:%S))",
+        "force_source": true,
+        "description":"Data de pagamento, no formato H:M:S.",
+        "field_type":"date"
+      },
+      {
+        "key":"paid_at.datetime",
+        "name":"pago em (DD/MM/YYYY - H:M:S)",
+        "source":"format_date(source[:paid_at],%q(%d/%m/%Y - %H:%M:%S))",
+        "force_source": true,
+        "description":"Data de pagamento, no formato DD/MM/YYYY - H:M:S.",
+        "field_type":"date_time"
+      },
+      {
         "key":"customer.id.id",
         "name":"id do cliente",
         "description":"ID do cliente na Vindi.",
