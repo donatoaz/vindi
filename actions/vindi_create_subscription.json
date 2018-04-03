@@ -1,105 +1,105 @@
 {
-	"name": {
+  "name": {
     "pt_BR": "Criar uma nova assinatura",
     "en": "Create a new subscription"
   },
   "action_key": "create_subscription",
   "description": {
-  	"pt_BR": "Criar uma nova assinatura",
+    "pt_BR": "Criar uma nova assinatura",
     "en": "Create a new subscription"
   },
   "action_fields": {
     "fields": [
-        {
-            "key": "customer_name",
-            "name": { "pt_BR": "cliente nome", "en": "customer name" },
-            "description": {
-                "pt_BR": "O nome do cliente",
-                "en": "The name of the customer"
-            },
-            "required": true,
-            "visible": true,
-            "field_type": "custom",
-            "data_type": "string",
-            "not_include_field_in_request": true
+      {
+        "key": "customer_name",
+        "name": { "pt_BR": "cliente nome", "en": "customer name" },
+        "description": {
+          "pt_BR": "O nome do cliente",
+          "en": "The name of the customer"
         },
-        {
-            "key": "customer_email",
-            "name": { "pt_BR": "cliente email", "en": "customer email" },
-            "description": {
-                "pt_BR": "O email do cliente",
-                "en": "The email of the customer"
-            },
-            "required": true,
-            "visible": true,
-            "field_type": "custom",
-            "data_type": "string",
-            "not_include_field_in_request": true
+        "required": true,
+        "visible": true,
+        "field_type": "custom",
+        "data_type": "string",
+        "not_include_field_in_request": true
+      },
+      {
+        "key": "customer_email",
+        "name": { "pt_BR": "cliente email", "en": "customer email" },
+        "description": {
+          "pt_BR": "O email do cliente",
+          "en": "The email of the customer"
         },
-        {
-            "key": "customer_id",
-            "name": { "pt_BR": "cliente id", "en": "customer id" },
-            "description": {
-                "pt_BR": "O ID do cliente",
-                "en": "The ID of the customer"
-            },
-            "required": false,
-            "visible": false,
-            "advanced": false,
-            "field_type": "string",
-            "data_type": "integer"
+        "required": true,
+        "visible": true,
+        "field_type": "custom",
+        "data_type": "string",
+        "not_include_field_in_request": true
+      },
+      {
+        "key": "customer_id",
+        "name": { "pt_BR": "cliente id", "en": "customer id" },
+        "description": {
+          "pt_BR": "O ID do cliente",
+          "en": "The ID of the customer"
         },
-        {
-            "key": "plan_name",
-            "name": { "pt_BR": "plano nome", "en": "plan name" },
-            "description": {
-                "pt_BR": "Nome do plano",
-                "en": "Plan name"
-            },
-            "required": true,
-            "visible": true,
-            "field_type": "custom",
-            "data_type": "string",
-            "not_include_field_in_request": true
+        "required": false,
+        "visible": false,
+        "advanced": false,
+        "field_type": "string",
+        "data_type": "integer"
+      },
+      {
+        "key": "plan_name",
+        "name": { "pt_BR": "plano nome", "en": "plan name" },
+        "description": {
+          "pt_BR": "Nome do plano",
+          "en": "Plan name"
         },
-        {
-            "key": "plan_id",
-            "name": { "pt_BR": "plano id", "en": "plan id" },
-            "description": {
-                "pt_BR": "O ID do plano",
-                "en": "The ID of the plan"
-            },
-            "required": false,
-            "visible": false,
-            "advanced": false,
-            "field_type": "string",
-            "data_type": "integer"
+        "required": true,
+        "visible": true,
+        "field_type": "custom",
+        "data_type": "string",
+        "not_include_field_in_request": true
+      },
+      {
+        "key": "plan_id",
+        "name": { "pt_BR": "plano id", "en": "plan id" },
+        "description": {
+          "pt_BR": "O ID do plano",
+          "en": "The ID of the plan"
         },
-        {
-          "key": "payment_method_code",
-          "name": {
-            "pt_BR": "método pagamento",
-            "en": "payment method"
-          },
-          "description": {
-            "pt_BR": "Código do método de pagamento",
-            "en": "Payment method code"
-          },
-          "label": { "pt_BR": "Método pagamento", "en": "Payment method" },
-          "placeholder": {
-            "pt_BR": "Selecione um método de pagamento",
-            "en": "Select a payment method"
-          },
-          "required": true,
-          "visible": true,
-          "advanced": false,
-          "field_type": "dropdown",
-          "data_type": "string",
-          "list": {
-            "type": "remote",
-            "helper_method": "payment_method_list"
-          }
+        "required": true,
+        "visible": false,
+        "advanced": false,
+        "field_type": "string",
+        "data_type": "integer"
+      },
+      {
+        "key": "payment_method_code",
+        "name": {
+          "pt_BR": "método pagamento",
+          "en": "payment method"
+        },
+        "description": {
+          "pt_BR": "Código do método de pagamento",
+          "en": "Payment method code"
+        },
+        "label": { "pt_BR": "Método pagamento", "en": "Payment method" },
+        "placeholder": {
+          "pt_BR": "Selecione um método de pagamento",
+          "en": "Select a payment method"
+        },
+        "required": true,
+        "visible": true,
+        "advanced": false,
+        "field_type": "dropdown",
+        "data_type": "string",
+        "list": {
+          "type": "remote",
+          "helper_method": "payment_method_list"
         }
+      }
     ]
   },
   "request": {
