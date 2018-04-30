@@ -123,9 +123,9 @@
         },
         {
           "name": "Criar Cliente",
-          "conditions": [
+          "conditions": [[
             {"field": "id", "condition": "equal", "value": null}
-          ],
+          ]],
           "request": {
             "verb": "post",
             "json_api": true,
