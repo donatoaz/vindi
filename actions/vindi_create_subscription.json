@@ -118,6 +118,7 @@
               {"field": "query", "value": "email:{customer_email}", "type": "string"}
             ],
             "response_field": ["customers"],
+            "error_fields": ["errors"],
             "append_params": [{"name": "customer", "value": "data[:hook].first"}]
           }
         },
@@ -130,6 +131,7 @@
             "verb": "post",
             "json_api": true,
             "method_name": "/customers",
+            "error_fields": ["errors"],
             "params": [
               {"field": "name", "value": "{customer_name}", "type": "string"},
               {"field": "email", "value": "{customer_email}", "type": "string"}
@@ -146,6 +148,7 @@
               {"field": "query", "value": "name:{plan_name}", "type": "string"}
             ],
             "response_field": ["plans"],
+            "error_fields": ["errors"],
             "append_params": [{"name": "plan", "value": "data[:hook].first"}]
           }
         }
