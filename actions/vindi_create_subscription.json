@@ -145,7 +145,7 @@
             "json_api": true,
             "method_name": "/plans",
             "params": [
-              {"field": "query", "value": "name:{plan_name}", "type": "string"}
+              {"field": "query", "value": "'name:\"' + data[:plan_name] + '\"'", "custom": true}
             ],
             "response_field": ["plans"],
             "error_fields": ["errors"],
